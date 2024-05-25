@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "scheduleoptimizer-421416",
+  "private_key_id": "e4fbf735dcbf25f33e3b837d81da79b65c6b688e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCofuyrL/SpTgiX\nU0rtixLiQaDJ94eR5GjTQWT0+TatZYVn90WgvvpDHiuTx8I31Eeu2frpxQYh3oLS\n8cDbfUjeQGOiGUj3tgqAwS3pEtwiIBdRYb2E2QVNqOqStFYEcb/r2h0B4i19Gd6p\nEFLCS1Hw3CKSP/DVASMBG6yrV87fc3KdiAvv6l0D02LCzzprThhLy+7tfqF51uju\n44uSfyVPDoly06JwWhEUy+0u1uzl3+de4JQsjwl8aTJx6EZjOPCbHFLNUNC6P4Sw\njOY7o5GiYPsjB27/rsGY95nDjS8dp3sHSMdKjynSQQO25vf5sJ1Cqv2bppH1EhYQ\nsYn77+qXAgMBAAECggEAOab0I77M4AErP1voj06+r1v1QCXJ5UlZ9K6zdH6xDrNl\n6iTZVh8CUmTIVFBNS/z+af17tPENIBmaecLuUiuT+zfc32H3bYqEHXn703v4hlSk\npdvjlMkM332khX3e0LZ7DKAcvMA/AEcRwJctOf27k8Y+rfvi038IEyD8+8OXrSyt\nKFqOytldDkiNoE71JFmDYCeOYI7Lu9E7wfgN0wPCkhdM6IhZFknwuSPlRbyOed+U\n7jWAzNAwqsIHMa3iZ/xoqSZgoI9EGGsQUCgkrr6/2OWn6IIM08cKL47S38Jenrd8\n4/vIWGbIh0Zc2ZmQMO1wEEFUYDneNLFZezcZuF6dQQKBgQDUmvY8bF0QtDPgJaxU\n957PN8ZT68sd8UCPHO4yAugakeWCnMe5fzbveRe/fAGQUHFfwV6Z7rdm3V6BoMVI\nfnQrDrRK1uI8eWZELiRCgf4uNQnYNPNqEzbEfmBT4MzCiEXxLM9kcGOTQB9eHnNu\nwYCkuP4kOztBAVva9fdyMKl13QKBgQDK4yexradUFALsuvL6DgyJieV5Tec/0+Dh\nrwbL3zZZrFWEJM4Pf8LhRrapnZ+z0o3erbyfhhLYp8dbkCR/bMYK/NhwXaMKh7sa\nwMhMhFxuZA2bJGXKZ8/2oqmC6S0gT1oZehzRlq/TDc5OYAbsYE8DETGutRpS4ul8\n/jmgKCedAwKBgQCZgIEEw2C2bMV/svOoLVj2WFjTws1WgxePvN2mMj8O4AQLt9Lk\ndZteb9nboVcnsU0KS/1XuumkVXSkt0V5wAN0CxvVZSzXaPeThpUbh+vTxOuktSaC\nkfjbCjvWk9qDIg0NwsLCy/q5GHUNaYMClqehRwgHdNSlbKu7fhf41HWl6QKBgQCX\nsuT5Gyij2xqcuuP2SA7jv/GOk8s2lEvvMxlX0pwmzI5ccdCJEjQ6kM7/X9YLdIGT\nYEBK3sq0qC6Nrec8R66EhK2oxrqjov0pcb/SRp1+BN2PhNV/U8PRW6p3MbYGFI7/\nwahOpebtXcNGItLKZvBtEKwfP1ZhZzzBsqyPrbaA1QKBgF+wsxA0S1UI/v2+LcDY\nDrvIKM9EDWouGofOqpFo4sR/ulyjg0Kp3ACRWQ1MsdP1V77mTwCiAAd/hpOo1dIc\nRLNCecChUt37v2aD+ln2rTzr+7dCq18ugGLyuhM490dnoYV8HaTl8jGqKf7xrG9J\nhFeGddOfXKVit5MYb4QcmG3c\n-----END PRIVATE KEY-----\n",
+  "client_email": "schedule-optimizer@scheduleoptimizer-421416.iam.gserviceaccount.com",
+  "client_id": "108492738623753725943",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/schedule-optimizer%40scheduleoptimizer-421416.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

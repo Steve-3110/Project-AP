@@ -1,0 +1,13 @@
+Name,Priority,Duration,Dependency,Time,Resources,User_name
+Building Permit,1,4,,2024-05-25 18:22,Paper work,Luca
+Site Preparation,2,8,Building Permit,2024-05-25 18:22,,Luca
+Customer prospection,1,4,Building Permit,2024-05-25 18:23,Phone call,Luca
+Lay foundation ,2,2,Site Preparation,2024-05-25 18:23,,Luca
+Construct Framework,3,3,Customer prospection,2024-05-25 18:24,,Luca
+Electricity connection,2,3,Construct Framework,2024-05-25 18:24,,Luca
+Painting,3,4,Electricity connection,2024-05-25 18:24,,Luca
+Choose the color of the paint,5,1,Customer prospection,2024-05-25 18:25,,Luca
+Final inspection,1,2,Painting,2024-05-25 18:25,,Luca
+Customer visits,1,1,Final inspection,2024-05-25 18:25,,Luca
+Send invoices,4,1,Customer visits,2024-05-25 18:26,,Luca
+test,2,2,Customer prospection,2024-05-25 19:10,whatever,Luca

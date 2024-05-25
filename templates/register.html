@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+        <style>
+            /* Increase space between label and input fields */
+            .form-group {
+                margin-bottom: 15px; /* Adjust the value as needed */
+            }
+                    /* Position the logout button */
+            .logout-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .back-to-login-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999; /* Ensure it's on top of other elements */
+            }
+
+            /* CSS styles for the footer */
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 12%;
+                background-color: #f8f9fa;
+                text-align: left;
+                padding: 10px;
+                font-size: 12px;
+                color: #555;
+            }
+
+
+            /* Style for the body */
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh; /* Set the height of the body to 100% of the viewport height */
+                display: flex; /* Use flexbox layout */
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                background-color: #B0E0E6; /* Background color */
+                font-family: Arial, sans-serif; /* Set font family */
+            }
+    
+            .styled-title {
+                text-align: center;
+                font-size: 40px;
+                font-weight: bold;
+                position: fixed; /* Fix the position */
+                top: 15px; /* Distance from the top */
+                color: #fff;
+            }
+    
+            /* Style for the container */
+            .container {
+                display: flex; /* Use flexbox layout */
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center content horizontally */
+            }
+            .form-container {
+                width: 300px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                top:50px; /* Vous pouvez ajuster cette valeur selon votre préférence */
+                position:absolute; /* Changement de position à absolute */
+                margin-top: 100px; /* Pour laisser de l'espace au-dessus du formulaire */
+            }
+    
+            /* Style for the form inputs */
+            input[type="text"], input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .black-bar {
+                position: fixed; /* Position fixed to stay at the top */
+                top: 0; /* Position at the top of the page */
+                width: 100%; /* Full width */
+                height: 80px; /* Height of the black bar */
+                background-color: #000; /* Black background color */
+            }
+            /* Style for the submit buttons */
+            input[type="submit"], button[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                background-color: #1E3A5F; /* Button background color on hover */
+                font-family: Montserrat, sans-serif;
+                color: #fff; /* Button text color */
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    
+    
+            /* Style for the submit buttons */
+            input[type="reset"], button[type="reset"] {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff; /* Button background color */
+                color: #fff; /* Button text color */
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: Arial, sans-serif; /* Set font family */
+                margin-top: 10px;
+            }
+
+            .flash-messages {
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                padding: 10px;
+                text-align: center;
+                color: red;
+                }
+
+            .alert {
+                margin-bottom: 0; /* Remove default margin-bottom for alerts */
+            }
+
+
+
+
+        </style>
+
+  <!-- Link Font Awesome stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body style="background-color: #1E3A5F;">
+    <!-- Black bar -->
+    <div class="black-bar"></div>
+    <div class="styled-title">
+        Create your account
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <div class="form-container"> 
+            <form method="POST" action="/register">
+                {{ form.hidden_tag() }}
+
+                <label for="user_name">User Name:</label>
+                {{ form.user_name(class="form-control") }}<br><br>
+
+                <label for="e-mail">E-mail:</label>
+                {{ form.email(class="form-control") }}<br><br>
+
+                <label for="family_name">Family Name:</label>
+                {{ form.family_name(class="form-control") }}<br><br>
+
+                <label for="surname">Surname:</label>
+                {{ form.surname(class="form-control") }}<br><br>
+
+                <label for="dob">Date of Birth:</label>
+                {{ form.dob(class="form-control") }}<br><br>
+
+                <label for="password">Password:</label>
+                {{ form.password(class="form-control") }}<br><br>
+
+                <label for="confirm_password">Confirm Password:</label>
+                {{ form.confirm_password(class="form-control") }}<br><br>
+
+
+            <form method="POST" action="/register">
+                <input type="submit" value="Register">
+            </form>
+
+            <form action="{{ url_for('login') }}" method="GET" class="back-to-login-btn">
+                <button type="submit" style="background-color: black;">
+                    <i class="fas fa-arrow-left"></i> Login
+                </button>
+            </form>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div class="flash-messages">
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} text-danger" role="alert">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
+
+
+
+
+
+        </div>
+        
+    </div>
+
+    <footer>
+        Powered by Steve Marchello ©
+    </footer>
+</body>
+</html>

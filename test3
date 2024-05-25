@@ -1,0 +1,64 @@
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from datetime import datetime, timedelta
+
+
+# Create the Task class
+class Task:
+    def __init__(self, name: str, priority: int, duration: int, predecessor: str, resources: str, start_time,user_name: str):
+        self.name = name
+        self.priority = priority
+        self.duration = duration
+        self.predecessor = predecessor
+        self.resources = resources
+        self.start_time = start_time
+        self.user_name = user_name
+
+
+
+# Créer un service Google Calendar
+def create_calendar_service():
+    credentials = service_account.Credentials.from_service_account_file(
+        'scheduleoptimizer-421416-e4fbf735dcbf.json', scopes=['https://www.googleapis.com/auth/calendar']
+    )
+    service = build('calendar', 'v3', credentials=credentials)
+    return service
+
+
+
+# Fonction pour exporter une tâche vers Google Calendar
+def export_task_to_google_calendar(task, service):
+    event = {
+        'summary': task.name,
+        'start': {
+            'dateTime': task.start_time.isoformat(),
+            'timeZone': 'Europe/Paris',  # Assure-toi que la zone horaire est correcte
+        },
+        'end': {
+            'dateTime': (task.start_time + timedelta(hours=task.duration)).isoformat(),
+            'timeZone': 'Europe/Paris',  # Assure-toi que la zone horaire est correcte
+        },
+    }
+
+    # Envoyer la requête pour créer un événement dans le calendrier
+    event = service.events().insert(calendarId='primary', body=event).execute()
+    print('Event created: %s' % (event.get('htmlLink')))
+
+
+
+# Supposons que tu as une tâche avec les détails suivants
+task = Task(
+    name="Test",
+    duration=2,
+    priority=1,
+    predecessor="",  # Keep it as a string
+    resources="",
+    user_name="Luca Marini",
+    start_time= datetime.now()
+)
+
+# Crée un service Google Calendar
+service = create_calendar_service()
+
+# Exporte la tâche vers Google Calendar
+export_task_to_google_calendar(task, service)

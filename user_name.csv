@@ -1,0 +1,4 @@
+user_name,FamilyName,Surname,DOB,password,email
+Sophie,Verney,Sophie,18.04.1972,$2b$12$RKigyooMxWSQbVvuZfzksOi7MZCSCAjA6vBNN7kKXNWD9aRpZcMpK,TestTestTestTest@hotmail.com
+Luca,Marini,Luca,11.02.1997,$2b$12$UvK5W3PBN1IDEtca9qERVeqF2JSV6di9v0ndd1PACNLDXTOAkYrvy,marchellosteve@gmail.com
+Steve,Marchello,Steve,31.10.1997,$2b$12$v4s7hJpTHxv3bBR2BaX5AOxx6X64BjV/To0knYGfP2lyu2lMe.UnO,steveverney@hotmail.com

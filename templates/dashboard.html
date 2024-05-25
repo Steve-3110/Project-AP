@@ -1,0 +1,315 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+                /* Position the logout button */
+        .logout-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            color: black;
+            font-size: 30px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .info-btn {
+            position: fixed;
+            top: 10px;
+            right: 100px;
+            color: black;
+            font-family: Montserrat, sans-serif;
+            font-size: 15px;
+        }
+
+
+
+
+
+        .optimization-time-container {
+            position: fixed; /* Fixer la position */
+            top: 95px; /* Distance du haut de la page */
+            left: 10px; /* Distance de la gauche de la page */
+            background-color: #f8f9fa; /* Couleur de fond */
+            padding: 10px; /* Remplissage intérieur */
+            border: 1px solid #f8f9fa; /* Bordure */
+            border-radius: 4px; /* Bordure arrondie */
+            z-index: 999; /* Empiler au-dessus du contenu */
+        }
+
+        .optimization-time {
+            color: #000; /* Couleur du texte */
+            font-size: 16px; /* Taille de la police */
+            font-style: italic; /* Style de police italique */
+            margin: 0; /* Réinitialiser la marge */
+        }
+
+
+        /* Style for the submit buttons */
+        input[type="submit"], button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #081d39; /* Button background color */
+            color: #fff; /* Button text color */
+            border: 1px solid whitesmoke;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Montserrat, sans-serif;
+            margin-top: 10px;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center; /* Centrer horizontalement le contenu */
+            align-items: flex-start; /* Aligner les éléments verticalement en haut */
+            margin-top: 20px; /* Ajouter une marge en haut pour espacer du titre */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Arranger les boutons verticalement */
+            margin-left: 20px; /* Ajouter une marge à gauche pour espacer du tableau */
+        }
+
+        /* Styles for the buttons */
+        .button-form {
+            margin-bottom: 10px; /* Add margin between buttons */
+        }
+
+        .button-form input[type="submit"],
+        .button-form button {
+            width: 150px;
+            background-color: #081d39;
+            border: 1px solid whitesmoke;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Montserrat, sans-serif;
+        }
+
+        /* Style for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .black-bar {
+            position: fixed; /* Position fixed to stay at the top */
+            top: 0; /* Position at the top of the page */
+            width: 100%; /* Full width */
+            height: 80px; /* Height of the black bar */
+            background-color: #000; /* Black background color */
+            display: flex; /* Use flexbox layout */
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space out items evenly */
+            padding: 0 20px; /* Add padding to the sides */
+        }
+
+
+        .styled-title1 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 80px;
+            position: fixed; /* Fix the position */
+            top: 15px; /* Distance from the top */
+            left: 10px; /* Distance from the left */
+            color: #fff;
+        }
+
+        .styled-title3 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            position: fixed; /* Fix the position */
+            top: 15px; /* Distance from the top */
+            color: #fff;
+        }
+
+        .styled-title2 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top : 130px;
+            color: #fff;
+        }
+        .export-btn {
+            position: fixed; /* Fix the position */
+            bottom: 10px; /* Distance from the bottom */
+            right: 10px; /* Distance from the right */
+
+        }
+
+        /* Style for the container */
+        .container {
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+       /* Style for the table */
+       table {
+            width: 80%; /* Set the width of the table */
+            border-collapse: collapse; /* Collapse table borders */
+            margin-bottom: 20px; /* Add margin at the bottom */
+        }
+
+    th {
+        padding: 10px; /* Add padding to table cells */
+        text-align: center; /* Align content in the center */
+        background-color: #081d39;
+        border: 1px solid #ddd; /* Add border to table cells */
+        color: #f8f9fa;
+    }
+
+    td {
+        padding: 10px; /* Add padding to table cells */
+        text-align: center; /* Align content in the center */
+        background-color: #f2f2f2;
+        border: 1px solid #ddd; /* Add border to table cells */
+    }
+
+    /* CSS styles for the footer */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 12%;
+        background-color: #f8f9fa;
+        text-align: left;
+        padding: 10px;
+        font-size: 12px;
+        color: #555;
+
+    }
+
+    /* Priority color styles */
+    .priority-1 { background-color: #e74747; }
+    .priority-2 { background-color: #ff652d; }
+    .priority-3 { background-color: #FFA500; }
+    .priority-4 { background-color: #bef170; }
+    .priority-5 { background-color: #3fb63f; }
+
+    .flash-messages {
+                font-weight: bold;
+                text-align: center;
+                color: red;
+        }
+
+
+    </style>
+
+
+</head>
+<body style="background-color: #1E3A5F;">
+    <!-- Black bar -->
+    <div class="black-bar"></div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Title -->
+        <div class="styled-title1">
+            Hi {{ username }}
+        </div>
+        
+        <a href="/link-to-info-page.html" class="info-btn">Info</a>
+
+        <!-- Title -->
+        <div class="styled-title3">
+            Dashboard
+        </div>
+
+        <div class="styled-title2">
+            Here is your current tasks
+        </div>
+
+        <div class="table-container">
+            <!-- Table to display tasks -->
+            <table>
+                <tr>
+                    <th style="width: 100px;">Name</th>
+                    <th style="width: 80px;">Priority</th>
+                    <th style="width: 120px;">Duration</th>
+                    <th style="width: 150px;">Predecessor</th>
+                    <th style="width: 200px;">Resources</th>
+                    <th style="width: 120px;">Creation Date</th>
+                    <th style="width: 50px;">Action</th> <!-- Nouvelle colonne pour le bouton de suppression -->
+                </tr>
+                {% for task in tasks %}
+                    <tr style="background-color: whitesmoke;">
+                        <td style="width: 100px;" class="priority-{{ task.priority }}">{{ task.name }}</td>
+                        <td style="width: 80px;" class="priority-{{ task.priority }}">{{ task.priority }}</td>
+                        <td style="width: 120px;" class="priority-{{ task.priority }}">{{ task.duration }}</td>
+                        <td style="width: 150px;" class="priority-{{ task.priority }}">{{ task.predecessor }}</td>
+                        <td style="width: 200px;" class="priority-{{ task.priority }}">{{ task.resources }}</td>
+                        <td style="width: 120px;" class="priority-{{ task.priority }}">{{ task.time }}</td>
+                        <td style="width: 50px;">
+                            <!-- Bouton de suppression -->
+                            <form action="/delete_task/{{ task.name }}" method="POST" style="background-color: whitesmoke">
+                                <input type="hidden" name="username" value="{{ username }}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <!-- Logout button -->
+            <form action="/logout" method="POST" class="logout-btn">
+                <button type="submit" style="background-color: black;">Logout</button>
+            </form>
+            <form action="/info/{{ username }}" method="GET" class="info-btn">
+                <button type="submit" style="background-color: black;">Info</button>
+            </form>
+
+            <div class="button-container">
+                <form method="POST" action="/add_task" class="button-form">       
+                    <input type="hidden" name="username"  value="{{ username }}">
+                    <input type="submit" value="Add Task">
+                </form>
+        
+                <form action="{{ url_for('optimize_schedule', username=username) }}" method="POST" class="button-form">
+                    <input type="hidden" name="username" value="{{ username }}">
+                    <button type="submit">Optimize Schedule</button>
+                </form>
+            </div>
+
+    </div>
+
+
+    <form action="/ics_export_form/{{ username }}" method="GET" class="export-btn">
+        <input type="submit" value="Export to .ics file">
+    </form>
+
+    <div class="optimization-time-container">
+        <p class="optimization-time">Optimized at: {{ optimization_time }}</p>
+    </div>
+
+
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-messages">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+
+
+    <footer>
+        Powered by Steve Marchello ©
+    </footer>
+
+</body>
+</html>

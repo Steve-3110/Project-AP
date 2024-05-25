@@ -1,0 +1,203 @@
+<!-- templates/remove.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Scheduler</title>
+    <style>
+        /* Increase space between label and input fields */
+        .form-group {
+            margin-bottom: 15px; /* Adjust the value as needed */
+        }
+
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            color: black;
+        }
+
+        /* Style for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Set the height of the body to 100% of the viewport height */
+            display: flex; /* Use flexbox layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #B0E0E6; /* Background color */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+
+        .styled-title {
+            text-align: center;
+            font-size: 40px; /* Adjust font size as needed */
+            font-weight: bold; /* Make the text bold */
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .styled-title3 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            position: fixed; /* Fix the position */
+            top: 15px; /* Distance from the top */
+            color: #fff;
+        }
+
+        /* CSS for the white container */
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            /* Adjust the width here */
+            width: 80%; /* Change this value to your desired width */
+            /* Alternatively, you can use max-width for responsiveness */
+            max-width: 600px; /* Adjust the maximum width as needed */
+            /* Center the container horizontally */
+            margin: 0 auto;
+            text-align: center;
+
+        }
+        /* CSS for the title */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        /* CSS for the FAQ items */
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        /* CSS for the question */
+        .question {
+            font-weight: bold;
+        }
+
+        /* Style for the form inputs */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Style for the submit buttons */
+        input[type="submit"], button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+
+
+        /* Style for the submit buttons */
+        input[type="reset"], button[type="reset"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif; /* Set font family */
+            margin-top: 10px;
+        }
+
+        .back-to-dashboard-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999; /* Ensure it's on top of other elements */
+    }
+
+        .black-bar {
+                position: fixed; /* Position fixed to stay at the top */
+                top: 0; /* Position at the top of the page */
+                width: 100%; /* Full width */
+                height: 80px; /* Height of the black bar */
+                background-color: #000; /* Black background color */
+            }
+        /* CSS styles for the footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 12%;
+            background-color: #f8f9fa;
+            text-align: left;
+            padding: 10px;
+            font-size: 12px;
+            color: #555;
+
+        }
+
+
+
+    </style>
+
+
+
+
+  <!-- Link Font Awesome stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body style="background-color: #1E3A5F;">
+    <!-- Black bar -->
+    <div class="black-bar"></div>
+
+        <!-- Title -->
+        <div class="styled-title3">
+            Q&A
+        </div>
+    
+    <div class="container">
+        <!-- FAQ items -->
+        <div class="faq-item">
+            <div class="question">Q: How does the algorithm work?</div>
+            <div class="answer"><p>A: The algorithm takes into account two parameters.</p>
+                <p>Priorities: It is ranked from 1 to 5, where 1 is the most important and 5 is the least.</p>
+                <p>Predecessor: A task can have a single predecessor, meaning this task must be achieved before scheduling the next optimization time.</p>
+                <p>It is important to consider that the solution provided by this algorithm is only a suggestion; there could be more than one single optimal solution.</p>
+                <p>The resources parameter is only there as a personal note and is not taken into account for the algorithm.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="question">Q: How to manage my task?</div>
+            <div class="answer"><p>A: To create a task go directly on the dashboard, click on add task and fill the form correctly</p>
+                <p>To delete a task you can simply click on the dashboard on the delete button near to the task you want to delete</p>
+                <p>Currently the application doesn't provide a solution to modify existing task, so you might have to delete and recreate a task to modify it</p>
+        </div>
+        <div class="faq-item">
+            <div class="question">Q: Can I modify my Login?</div>
+            <div class="answer">A: For now you doesn't have the possibility to modify your login</div>
+        </div>
+    </div>
+
+    <form action="/logout" method="GET" class="logout-btn">
+        <button type="submit" style="background-color: black;">Logout</button>
+    </form>
+
+    <form action="{{ url_for('dashboard', username=username) }}" method="GET" class="back-to-dashboard-btn">
+        <button type="submit" style="background-color: black;">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+    </form>
+    
+    <footer>
+        Powered by Steve Marchello ©
+    </footer>
+</body>
+</html>
